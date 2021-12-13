@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="section-intro padding-y-sm">
+<div class="container">
+<div class="intro-banner-wrap">
+	<img src="{% static 'images/banners/Msigana E-commerce.jpg' %}" class="img-fluid rounded">
+</div>
+</div>
+</section>
+<section class="section-name padding-y-sm">
+<div class="container">
+
+<header class="section-heading">
+	<a href="./store.html" class="btn btn-outline-primary float-right">See all</a>
+	<h3 class="section-title">Popular products</h3>
+</header>
+<div class="row">
+	<div class="col-md-3">
+		<div class="card card-product-grid">
+			<a href="./product-detail.html" class="img-wrap"> <img src="{% static 'images/items/1.jpg' %}"> </a>
+			<figcaption class="info-wrap">
+				<a href="./product-detail.html" class="title">Just another product name</a>
+				<div class="price mt-1">$179.00</div>
+			</figcaption>
+		</div>
+	</div>
+</div>
+</div>
+</section>
+
+{% endblock %}
