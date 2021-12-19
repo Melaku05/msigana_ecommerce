@@ -1,24 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-
-<!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
 <div class="container">
 	<h2 class="title-page">Our Store</h2>
-
-</div> <!-- container //  -->
+</div>
 </section>
-<!-- ========================= SECTION INTRO END// ========================= -->
-
-<!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
 <div class="container">
-
 <div class="row">
 	<aside class="col-md-3">
-
 <div class="card">
 	<article class="filter-group">
 		<header class="card-header">
@@ -31,14 +22,15 @@
 			<div class="card-body">
 
 				<ul class="list-menu">
+					<a class="dropdown-item" href="{% url 'store' %}">All products </a>
 					{% for category in links %}
-				<li><a href="{{category.get_url}}">{{category.category_name}}  </a></li>
+				    <a class="dropdown-item" href="{{ category.get_url}}">{{category.category_name}} </a>
 				    {% endfor %}
 				</ul>
 
-			</div> <!-- card-body.// -->
+			</div>
 		</div>
-	</article> <!-- filter-group  .// -->
+	</article>
 	<article class="filter-group">
 		<header class="card-header">
 			<a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
@@ -129,19 +121,23 @@
 	{% for  product in products %}
 	<div class="col-md-4">
 		<figure class="card card-product-grid">
-			<div class="img-wrap">
-				<img src="{{product.product_images.url}}">
 
-			</div> <!-- img-wrap.// -->
+			<a href="{{product.get_store_url}}" class="img-wrap"><img src="{{product.product_images.url}}"></a>
+
+
 			<figcaption class="info-wrap">
 				<div class="fix-height">
-					<a href="./product-detail.html" class="title">{{product.product_name}}</a>
+					<a href="{{product.get_store_url}}" class="title">{{product.product_name}}</a>
 					<div class="price-wrap mt-2">
 						<span class="price">${{product.product_price}}</span>
 						<del class="price-old">30%</del>
 					</div> <!-- price-wrap.// -->
 				</div>
+				{% if 0 >= single_product.product_stock %}
+				<h5>out of stock </h5>
+				{% else %}
 				<a href="#" class="btn btn-block btn-success">Added to cart </a>
+				{% endif %}
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->

@@ -18,10 +18,10 @@
 	{% for product in products %}
 	<div class="col-md-3">
 		<div class="card card-product-grid">
-			<a href="./product-detail.html" class="img-wrap"> <img src="{{product.product_images.url}}"> </a>
+			<a href="{{product.get_store_url}}" class="img-wrap"> <img src="{{product.product_images.url}}"> </a>
 			<figcaption class="info-wrap">
-				<a href="./product-detail.html" class="title">{{product.product_name}}</a>
-				<a href="./product-detail.html" class="title">{{product.product_description}}</a>
+				<a href="{{product.get_store_url}}" class="title">{{product.product_name}}</a>
+				<a href="{{product.get_store_url}}" class="title">{{product.product_description}}</a>
 				<div class="price mt-1">{{ product.product_price }}birr</div>
 			</figcaption>
 		</div>
