@@ -64,10 +64,13 @@
 
 			<span class="text">out of stock</span>
 			{% else %}
-	<a href="" class="btn  btn-primary">
-		<span class="text">Add to cart</span>
-		<i class="fas fa-shopping-cart"></i>
-	</a>
+			{% if in_cart %}
+	        <a href="" class="btn  btn-success"><span class="text">Added to Cart</span><i class="fas fa-check"></i></a>
+			<a href="{% url 'cart' %}" class="btn  btn-outline-primary"><span class="text">View Cart</span><i class="fas fa-eye"></i></a>
+			{% else %}
+			<a href="{% url 'add_cart' single_product.id %}" class="btn  btn-primary"><span class="text">Add to cart</span><i class="fas fa-shopping-cart"></i></a>
+			{% endif %}
+
 			{% endif %}
 </article>
 		</main>
@@ -96,9 +99,7 @@
 		</div>
 		<div class="mt-3">
 			<p>
-				Dummy comment Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip
+				
 			</p>	
 		</div>
 	</article>
