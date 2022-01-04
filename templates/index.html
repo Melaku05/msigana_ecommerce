@@ -2,33 +2,34 @@
 {% load static %}
 {% block content %}
 <section class="section-intro padding-y-sm">
-<div class="container">
-<div class="intro-banner-wrap">
-	<img src="{% static 'images/banners/Msigana E-commerce.jpg' %}" class="img-fluid rounded">
-</div>
-</div>
+    <div class="container">
+        <div class="intro-banner-wrap">
+            <img src="{% static 'images/banners/Msigana E-commerce.jpg' %}" class="img-fluid rounded">
+        </div>
+    </div>
 </section>
 <section class="section-name padding-y-sm">
-<div class="container">
-<header class="section-heading">
-	<a href="./store.html" class="btn btn-outline-primary float-right">See all</a>
-	<h3 class="section-title">Popular products</h3>
-</header>
-<div class="row">
-	{% for product in products %}
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="{{product.get_store_url}}" class="img-wrap"> <img src="{{product.product_images.url}}"> </a>
-			<figcaption class="info-wrap">
-				<a href="{{product.get_store_url}}" class="title">{{product.product_name}}</a>
-				<a href="{{product.get_store_url}}" class="title">{{product.product_description}}</a>
-				<div class="price mt-1">{{ product.product_price }}birr</div>
-			</figcaption>
-		</div>
-	</div>
-	{% endfor %}
-</div>
-</div>
+    <div class="container">
+        <header class="section-heading">
+            <a href="{% url 'store' %}" class="btn btn-outline-primary float-right">See all</a>
+            <h3 class="section-title">Popular products</h3>
+        </header>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-3">
+                <div class="card card-product-grid">
+                    <a href="{{product.get_store_url}}" class="img-wrap"> <img src="{{product.product_images.url}}">
+                    </a>
+                    <figcaption class="info-wrap">
+                        <a href="{{product.get_store_url}}" class="title">{{product.product_name}}</a>
+                        <a href="{{product.get_store_url}}" class="title">{{product.product_description}}</a>
+                        <div class="price mt-1">{{ product.product_price }}birr</div>
+                    </figcaption>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 
 {% endblock %}
