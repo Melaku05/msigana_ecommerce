@@ -1,0 +1,1 @@
+web: gunicorn msigana_ecommerce.wsgi --log-file -
